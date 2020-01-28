@@ -1,0 +1,59 @@
+{
+    "name": "Torneo",
+    "fields": [
+        {
+            "fieldName": "fecha",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "oficial",
+            "fieldType": "Boolean"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "tarjeta",
+            "otherEntityRelationshipName": "torneo",
+            "relationshipName": "tarjeta"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "campeonato",
+            "otherEntityRelationshipName": "torneo",
+            "relationshipName": "campeonato",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "especialidad",
+            "otherEntityRelationshipName": "torneo",
+            "relationshipName": "especialidad",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "club",
+            "otherEntityRelationshipName": "torneo",
+            "relationshipName": "club",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "torneosClubes",
+            "otherEntityRelationshipName": "torneo",
+            "relationshipName": "torneosClubes",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200123191031",
+    "entityTableName": "torneo",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity Participante.
+    -->
+    <changeSet id="20200123191028-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="participante_id"
+                                 baseTableName="participante_campeonato"
+                                 constraintName="fk_participante_campeonato_participante_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="participante"/>
+
+        <addForeignKeyConstraint baseColumnNames="campeonato_id"
+                                 baseTableName="participante_campeonato"
+                                 constraintName="fk_participante_campeonato_campeonato_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="campeonato"/>
+        
+        <addForeignKeyConstraint baseColumnNames="club_id"
+                                 baseTableName="participante"
+                                 constraintName="fk_participante_club_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="club"/>
+
+        <addForeignKeyConstraint baseColumnNames="categoria_id"
+                                 baseTableName="participante"
+                                 constraintName="fk_participante_categoria_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="categoria"/>
+
+    </changeSet>
+</databaseChangeLog>

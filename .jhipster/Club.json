@@ -1,0 +1,52 @@
+{
+    "name": "Club",
+    "fields": [
+        {
+            "fieldName": "nombre",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 50
+        },
+        {
+            "fieldName": "abreviacion",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 3
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "participante",
+            "otherEntityRelationshipName": "club",
+            "relationshipName": "participante"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "torneo",
+            "otherEntityRelationshipName": "club",
+            "relationshipName": "torneo"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "torneosClubes",
+            "otherEntityRelationshipName": "club",
+            "relationshipName": "torneosClubes",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200123191026",
+    "entityTableName": "club",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

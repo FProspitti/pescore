@@ -1,0 +1,47 @@
+{
+    "name": "Tarjeta",
+    "fields": [
+        {
+            "fieldName": "cantidad",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "peso",
+            "fieldType": "Float"
+        },
+        {
+            "fieldName": "hora",
+            "fieldType": "Duration"
+        },
+        {
+            "fieldName": "puntaje",
+            "fieldType": "Float"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "torneo",
+            "otherEntityRelationshipName": "tarjeta",
+            "relationshipName": "torneo",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "participante",
+            "otherEntityRelationshipName": "tarjeta",
+            "relationshipName": "participante",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200123191033",
+    "entityTableName": "tarjeta",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,51 @@
+{
+    "name": "Campeonato",
+    "fields": [
+        {
+            "fieldName": "fecha",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "nombre",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 50
+        },
+        {
+            "fieldName": "cantidadPescadores",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "cantidadClubes",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "torneo",
+            "otherEntityRelationshipName": "campeonato",
+            "relationshipName": "torneo"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "participante",
+            "otherEntityRelationshipName": "campeonato",
+            "relationshipName": "participante",
+            "otherEntityField": "id",
+            "ownerSide": false
+        }
+    ],
+    "changelogDate": "20200123191030",
+    "entityTableName": "campeonato",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

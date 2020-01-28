@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity Tarjeta.
+    -->
+    <changeSet id="20200123191033-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="torneo_id"
+                                 baseTableName="tarjeta"
+                                 constraintName="fk_tarjeta_torneo_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="torneo"/>
+
+        <addForeignKeyConstraint baseColumnNames="participante_id"
+                                 baseTableName="tarjeta"
+                                 constraintName="fk_tarjeta_participante_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="participante"/>
+
+    </changeSet>
+</databaseChangeLog>

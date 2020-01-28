@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity Torneo.
+    -->
+    <changeSet id="20200123191031-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="campeonato_id"
+                                 baseTableName="torneo"
+                                 constraintName="fk_torneo_campeonato_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="campeonato"/>
+
+        <addForeignKeyConstraint baseColumnNames="especialidad_id"
+                                 baseTableName="torneo"
+                                 constraintName="fk_torneo_especialidad_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="especialidad"/>
+
+        <addForeignKeyConstraint baseColumnNames="club_id"
+                                 baseTableName="torneo"
+                                 constraintName="fk_torneo_club_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="club"/>
+
+        <addForeignKeyConstraint baseColumnNames="torneos_clubes_id"
+                                 baseTableName="torneo"
+                                 constraintName="fk_torneo_torneos_clubes_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="torneos_clubes"/>
+
+    </changeSet>
+</databaseChangeLog>

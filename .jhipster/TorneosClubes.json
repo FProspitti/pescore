@@ -1,0 +1,45 @@
+{
+    "name": "TorneosClubes",
+    "fields": [
+        {
+            "fieldName": "posicion",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "puntaje",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "puntos",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "fecha",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "torneo",
+            "otherEntityRelationshipName": "torneosClubes",
+            "relationshipName": "torneo"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "club",
+            "otherEntityRelationshipName": "torneosClubes",
+            "relationshipName": "club"
+        }
+    ],
+    "changelogDate": "20200123191032",
+    "entityTableName": "torneos_clubes",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}
