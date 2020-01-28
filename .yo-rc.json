@@ -35,6 +35,8 @@
     "enableTranslation": true,
     "nativeLanguage": "es",
     "languages": ["es"],
-    "blueprints": []
+    "blueprints": [],
+    "herokuAppName": "pescore",
+    "herokuDeployType": "git"
   }
 }
