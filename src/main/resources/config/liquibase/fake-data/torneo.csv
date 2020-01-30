@@ -1,11 +1,11 @@
-id;fecha;oficial
-1;2020-01-22;true
-2;2020-01-23;false
-3;2020-01-23;true
-4;2020-01-22;true
-5;2020-01-23;true
-6;2020-01-23;false
-7;2020-01-23;true
-8;2020-01-23;false
-9;2020-01-23;true
-10;2020-01-23;false
+id;fecha;fecha_creacion;nombre;oficial
+1;2020-01-22;2020-01-23;Computer transmitting;true
+2;2020-01-23;2020-01-22;Intelligent Soft Soap end-to-end;true
+3;2020-01-23;2020-01-23;Licensed pricing structure;false
+4;2020-01-23;2020-01-23;Plastic Global;true
+5;2020-01-23;2020-01-23;Concrete Kids bypass;false
+6;2020-01-23;2020-01-23;frame Division Markets;false
+7;2020-01-23;2020-01-23;programming Turks and Caicos Islands Illinois;false
+8;2020-01-23;2020-01-23;Granite;true
+9;2020-01-23;2020-01-23;Small Frozen Bacon;true
+10;2020-01-23;2020-01-23;superstructure;true

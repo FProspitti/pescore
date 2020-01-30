@@ -52,6 +52,9 @@ public class ParticipanteResourceIT {
     private static final LocalDate DEFAULT_FECHA_NACIMIENTO = LocalDate.ofEpochDay(0L);
     private static final LocalDate UPDATED_FECHA_NACIMIENTO = LocalDate.now(ZoneId.systemDefault());
 
+    private static final Integer DEFAULT_CODIGO = 1;
+    private static final Integer UPDATED_CODIGO = 2;
+
     private static final Integer DEFAULT_EDAD = 1;
     private static final Integer UPDATED_EDAD = 2;
 
@@ -112,6 +115,7 @@ public class ParticipanteResourceIT {
             .nombre(DEFAULT_NOMBRE)
             .apellido(DEFAULT_APELLIDO)
             .fechaNacimiento(DEFAULT_FECHA_NACIMIENTO)
+            .codigo(DEFAULT_CODIGO)
             .edad(DEFAULT_EDAD);
         return participante;
     }
@@ -126,6 +130,7 @@ public class ParticipanteResourceIT {
             .nombre(UPDATED_NOMBRE)
             .apellido(UPDATED_APELLIDO)
             .fechaNacimiento(UPDATED_FECHA_NACIMIENTO)
+            .codigo(UPDATED_CODIGO)
             .edad(UPDATED_EDAD);
         return participante;
     }
@@ -154,6 +159,7 @@ public class ParticipanteResourceIT {
         assertThat(testParticipante.getNombre()).isEqualTo(DEFAULT_NOMBRE);
         assertThat(testParticipante.getApellido()).isEqualTo(DEFAULT_APELLIDO);
         assertThat(testParticipante.getFechaNacimiento()).isEqualTo(DEFAULT_FECHA_NACIMIENTO);
+        assertThat(testParticipante.getCodigo()).isEqualTo(DEFAULT_CODIGO);
         assertThat(testParticipante.getEdad()).isEqualTo(DEFAULT_EDAD);
     }
 
@@ -192,6 +198,7 @@ public class ParticipanteResourceIT {
             .andExpect(jsonPath("$.[*].nombre").value(hasItem(DEFAULT_NOMBRE)))
             .andExpect(jsonPath("$.[*].apellido").value(hasItem(DEFAULT_APELLIDO)))
             .andExpect(jsonPath("$.[*].fechaNacimiento").value(hasItem(DEFAULT_FECHA_NACIMIENTO.toString())))
+            .andExpect(jsonPath("$.[*].codigo").value(hasItem(DEFAULT_CODIGO)))
             .andExpect(jsonPath("$.[*].edad").value(hasItem(DEFAULT_EDAD)));
     }
     
@@ -242,6 +249,7 @@ public class ParticipanteResourceIT {
             .andExpect(jsonPath("$.nombre").value(DEFAULT_NOMBRE))
             .andExpect(jsonPath("$.apellido").value(DEFAULT_APELLIDO))
             .andExpect(jsonPath("$.fechaNacimiento").value(DEFAULT_FECHA_NACIMIENTO.toString()))
+            .andExpect(jsonPath("$.codigo").value(DEFAULT_CODIGO))
             .andExpect(jsonPath("$.edad").value(DEFAULT_EDAD));
     }
 
@@ -269,6 +277,7 @@ public class ParticipanteResourceIT {
             .nombre(UPDATED_NOMBRE)
             .apellido(UPDATED_APELLIDO)
             .fechaNacimiento(UPDATED_FECHA_NACIMIENTO)
+            .codigo(UPDATED_CODIGO)
             .edad(UPDATED_EDAD);
         ParticipanteDTO participanteDTO = participanteMapper.toDto(updatedParticipante);
 
@@ -284,6 +293,7 @@ public class ParticipanteResourceIT {
         assertThat(testParticipante.getNombre()).isEqualTo(UPDATED_NOMBRE);
         assertThat(testParticipante.getApellido()).isEqualTo(UPDATED_APELLIDO);
         assertThat(testParticipante.getFechaNacimiento()).isEqualTo(UPDATED_FECHA_NACIMIENTO);
+        assertThat(testParticipante.getCodigo()).isEqualTo(UPDATED_CODIGO);
         assertThat(testParticipante.getEdad()).isEqualTo(UPDATED_EDAD);
     }
 

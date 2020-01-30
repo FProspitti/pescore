@@ -33,6 +33,9 @@ public class Participante implements Serializable {
     @Column(name = "fecha_nacimiento")
     private LocalDate fechaNacimiento;
 
+    @Column(name = "codigo")
+    private Integer codigo;
+
     @Column(name = "edad")
     private Integer edad;
 
@@ -51,7 +54,7 @@ public class Participante implements Serializable {
 
     @ManyToOne
     @JsonIgnoreProperties("participantes")
-    private Categoria categoria;
+    private SubCategoria subCategoria;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -99,6 +102,19 @@ public class Participante implements Serializable {
 
     public void setFechaNacimiento(LocalDate fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
+    }
+
+    public Integer getCodigo() {
+        return codigo;
+    }
+
+    public Participante codigo(Integer codigo) {
+        this.codigo = codigo;
+        return this;
+    }
+
+    public void setCodigo(Integer codigo) {
+        this.codigo = codigo;
     }
 
     public Integer getEdad() {
@@ -177,17 +193,17 @@ public class Participante implements Serializable {
         this.club = club;
     }
 
-    public Categoria getCategoria() {
-        return categoria;
+    public SubCategoria getSubCategoria() {
+        return subCategoria;
     }
 
-    public Participante categoria(Categoria categoria) {
-        this.categoria = categoria;
+    public Participante subCategoria(SubCategoria subCategoria) {
+        this.subCategoria = subCategoria;
         return this;
     }
 
-    public void setCategoria(Categoria categoria) {
-        this.categoria = categoria;
+    public void setSubCategoria(SubCategoria subCategoria) {
+        this.subCategoria = subCategoria;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
@@ -214,6 +230,7 @@ public class Participante implements Serializable {
             ", nombre='" + getNombre() + "'" +
             ", apellido='" + getApellido() + "'" +
             ", fechaNacimiento='" + getFechaNacimiento() + "'" +
+            ", codigo=" + getCodigo() +
             ", edad=" + getEdad() +
             "}";
     }

@@ -1,4 +1,4 @@
-id;fecha;nombre;cantidad_pescadores;cantidad_clubes
+id;fecha_creacion;nombre;cantidad_pescadores;cantidad_clubes
 1;2020-01-23;South Dakota synergy Optimized;67314;1908
 2;2020-01-22;Steel;78706;40743
 3;2020-01-22;programming Home Loan Account;14570;31033

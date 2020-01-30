@@ -11,7 +11,7 @@ public class CampeonatoDTO implements Serializable {
 
     private Long id;
 
-    private LocalDate fecha;
+    private LocalDate fechaCreacion;
 
     @Size(max = 50)
     private String nombre;
@@ -21,6 +21,8 @@ public class CampeonatoDTO implements Serializable {
     private Integer cantidadClubes;
 
 
+    private Long categoriaId;
+
     public Long getId() {
         return id;
     }
@@ -29,12 +31,12 @@ public class CampeonatoDTO implements Serializable {
         this.id = id;
     }
 
-    public LocalDate getFecha() {
-        return fecha;
+    public LocalDate getFechaCreacion() {
+        return fechaCreacion;
     }
 
-    public void setFecha(LocalDate fecha) {
-        this.fecha = fecha;
+    public void setFechaCreacion(LocalDate fechaCreacion) {
+        this.fechaCreacion = fechaCreacion;
     }
 
     public String getNombre() {
@@ -59,6 +61,14 @@ public class CampeonatoDTO implements Serializable {
 
     public void setCantidadClubes(Integer cantidadClubes) {
         this.cantidadClubes = cantidadClubes;
+    }
+
+    public Long getCategoriaId() {
+        return categoriaId;
+    }
+
+    public void setCategoriaId(Long categoriaId) {
+        this.categoriaId = categoriaId;
     }
 
     @Override
@@ -86,10 +96,11 @@ public class CampeonatoDTO implements Serializable {
     public String toString() {
         return "CampeonatoDTO{" +
             "id=" + getId() +
-            ", fecha='" + getFecha() + "'" +
+            ", fechaCreacion='" + getFechaCreacion() + "'" +
             ", nombre='" + getNombre() + "'" +
             ", cantidadPescadores=" + getCantidadPescadores() +
             ", cantidadClubes=" + getCantidadClubes() +
+            ", categoriaId=" + getCategoriaId() +
             "}";
     }
 }

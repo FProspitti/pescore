@@ -21,7 +21,7 @@
     "serviceDiscoveryType": false,
     "buildTool": "maven",
     "enableSwaggerCodegen": false,
-    "jwtSecretKey": "ZjEwNTg1ZmI2MzIwMDRjMjY5YjY2ZWM5ZWUzYWQ4MzU0ZWZjOGRkMWNkYzE1NjQ0YTIzYjJmMTdjOWFhMWZkOGY0MTA1NDE1ZTNkM2JlNDczNzk0ZDVlOGFlY2Y4YjNjODQwYTBiZDE4OGYzN2RiNGJkYWI4MGVkMzY5NzZiMmU=",
+    "jwtSecretKey": "N2JjNWNhZDQ4OTQ2MzNlODQ2YmI1ZjZhODRkMjE1OWZjNWY4YmE5OTIyYzc1NmZlMzM1ZjJkYzc3YzBkZjRlMzBmYmE1ZTZmYmI0MjlhMzNjZjkwOTk0MjgzZjIwOTE1NWE5YzFkZDk5MDU5YzlkM2I5NTBlMTg0YTc3MjhkMzA=",
     "embeddableLaunchScript": false,
     "useSass": true,
     "clientPackageManager": "npm",

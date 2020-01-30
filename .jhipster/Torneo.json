@@ -6,6 +6,18 @@
             "fieldType": "LocalDate"
         },
         {
+            "fieldName": "fechaCreacion",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "nombre",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 50
+        },
+        {
             "fieldName": "oficial",
             "fieldType": "Boolean"
         }

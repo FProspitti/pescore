@@ -12,8 +12,10 @@ import org.mapstruct.*;
 public interface CategoriaMapper extends EntityMapper<CategoriaDTO, Categoria> {
 
 
-    @Mapping(target = "participantes", ignore = true)
-    @Mapping(target = "removeParticipante", ignore = true)
+    @Mapping(target = "subCategorias", ignore = true)
+    @Mapping(target = "removeSubCategoria", ignore = true)
+    @Mapping(target = "campeonatoes", ignore = true)
+    @Mapping(target = "removeCampeonato", ignore = true)
     Categoria toEntity(CategoriaDTO categoriaDTO);
 
     default Categoria fromId(Long id) {

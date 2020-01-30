@@ -38,8 +38,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest(classes = PescoreApp.class)
 public class CampeonatoResourceIT {
 
-    private static final LocalDate DEFAULT_FECHA = LocalDate.ofEpochDay(0L);
-    private static final LocalDate UPDATED_FECHA = LocalDate.now(ZoneId.systemDefault());
+    private static final LocalDate DEFAULT_FECHA_CREACION = LocalDate.ofEpochDay(0L);
+    private static final LocalDate UPDATED_FECHA_CREACION = LocalDate.now(ZoneId.systemDefault());
 
     private static final String DEFAULT_NOMBRE = "AAAAAAAAAA";
     private static final String UPDATED_NOMBRE = "BBBBBBBBBB";
@@ -98,7 +98,7 @@ public class CampeonatoResourceIT {
      */
     public static Campeonato createEntity(EntityManager em) {
         Campeonato campeonato = new Campeonato()
-            .fecha(DEFAULT_FECHA)
+            .fechaCreacion(DEFAULT_FECHA_CREACION)
             .nombre(DEFAULT_NOMBRE)
             .cantidadPescadores(DEFAULT_CANTIDAD_PESCADORES)
             .cantidadClubes(DEFAULT_CANTIDAD_CLUBES);
@@ -112,7 +112,7 @@ public class CampeonatoResourceIT {
      */
     public static Campeonato createUpdatedEntity(EntityManager em) {
         Campeonato campeonato = new Campeonato()
-            .fecha(UPDATED_FECHA)
+            .fechaCreacion(UPDATED_FECHA_CREACION)
             .nombre(UPDATED_NOMBRE)
             .cantidadPescadores(UPDATED_CANTIDAD_PESCADORES)
             .cantidadClubes(UPDATED_CANTIDAD_CLUBES);
@@ -140,7 +140,7 @@ public class CampeonatoResourceIT {
         List<Campeonato> campeonatoList = campeonatoRepository.findAll();
         assertThat(campeonatoList).hasSize(databaseSizeBeforeCreate + 1);
         Campeonato testCampeonato = campeonatoList.get(campeonatoList.size() - 1);
-        assertThat(testCampeonato.getFecha()).isEqualTo(DEFAULT_FECHA);
+        assertThat(testCampeonato.getFechaCreacion()).isEqualTo(DEFAULT_FECHA_CREACION);
         assertThat(testCampeonato.getNombre()).isEqualTo(DEFAULT_NOMBRE);
         assertThat(testCampeonato.getCantidadPescadores()).isEqualTo(DEFAULT_CANTIDAD_PESCADORES);
         assertThat(testCampeonato.getCantidadClubes()).isEqualTo(DEFAULT_CANTIDAD_CLUBES);
@@ -178,7 +178,7 @@ public class CampeonatoResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(campeonato.getId().intValue())))
-            .andExpect(jsonPath("$.[*].fecha").value(hasItem(DEFAULT_FECHA.toString())))
+            .andExpect(jsonPath("$.[*].fechaCreacion").value(hasItem(DEFAULT_FECHA_CREACION.toString())))
             .andExpect(jsonPath("$.[*].nombre").value(hasItem(DEFAULT_NOMBRE)))
             .andExpect(jsonPath("$.[*].cantidadPescadores").value(hasItem(DEFAULT_CANTIDAD_PESCADORES)))
             .andExpect(jsonPath("$.[*].cantidadClubes").value(hasItem(DEFAULT_CANTIDAD_CLUBES)));
@@ -195,7 +195,7 @@ public class CampeonatoResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(campeonato.getId().intValue()))
-            .andExpect(jsonPath("$.fecha").value(DEFAULT_FECHA.toString()))
+            .andExpect(jsonPath("$.fechaCreacion").value(DEFAULT_FECHA_CREACION.toString()))
             .andExpect(jsonPath("$.nombre").value(DEFAULT_NOMBRE))
             .andExpect(jsonPath("$.cantidadPescadores").value(DEFAULT_CANTIDAD_PESCADORES))
             .andExpect(jsonPath("$.cantidadClubes").value(DEFAULT_CANTIDAD_CLUBES));
@@ -222,7 +222,7 @@ public class CampeonatoResourceIT {
         // Disconnect from session so that the updates on updatedCampeonato are not directly saved in db
         em.detach(updatedCampeonato);
         updatedCampeonato
-            .fecha(UPDATED_FECHA)
+            .fechaCreacion(UPDATED_FECHA_CREACION)
             .nombre(UPDATED_NOMBRE)
             .cantidadPescadores(UPDATED_CANTIDAD_PESCADORES)
             .cantidadClubes(UPDATED_CANTIDAD_CLUBES);
@@ -237,7 +237,7 @@ public class CampeonatoResourceIT {
         List<Campeonato> campeonatoList = campeonatoRepository.findAll();
         assertThat(campeonatoList).hasSize(databaseSizeBeforeUpdate);
         Campeonato testCampeonato = campeonatoList.get(campeonatoList.size() - 1);
-        assertThat(testCampeonato.getFecha()).isEqualTo(UPDATED_FECHA);
+        assertThat(testCampeonato.getFechaCreacion()).isEqualTo(UPDATED_FECHA_CREACION);
         assertThat(testCampeonato.getNombre()).isEqualTo(UPDATED_NOMBRE);
         assertThat(testCampeonato.getCantidadPescadores()).isEqualTo(UPDATED_CANTIDAD_PESCADORES);
         assertThat(testCampeonato.getCantidadClubes()).isEqualTo(UPDATED_CANTIDAD_CLUBES);

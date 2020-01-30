@@ -26,11 +26,11 @@
                                  referencedColumnNames="id"
                                  referencedTableName="club"/>
 
-        <addForeignKeyConstraint baseColumnNames="categoria_id"
+        <addForeignKeyConstraint baseColumnNames="sub_categoria_id"
                                  baseTableName="participante"
-                                 constraintName="fk_participante_categoria_id"
+                                 constraintName="fk_participante_sub_categoria_id"
                                  referencedColumnNames="id"
-                                 referencedTableName="categoria"/>
+                                 referencedTableName="sub_categoria"/>
 
     </changeSet>
 </databaseChangeLog>

@@ -1,5 +1,6 @@
 package com.ar.pescore.service.dto;
 import java.time.LocalDate;
+import javax.validation.constraints.*;
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -11,6 +12,11 @@ public class TorneoDTO implements Serializable {
     private Long id;
 
     private LocalDate fecha;
+
+    private LocalDate fechaCreacion;
+
+    @Size(max = 50)
+    private String nombre;
 
     private Boolean oficial;
 
@@ -37,6 +43,22 @@ public class TorneoDTO implements Serializable {
 
     public void setFecha(LocalDate fecha) {
         this.fecha = fecha;
+    }
+
+    public LocalDate getFechaCreacion() {
+        return fechaCreacion;
+    }
+
+    public void setFechaCreacion(LocalDate fechaCreacion) {
+        this.fechaCreacion = fechaCreacion;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public Boolean isOficial() {
@@ -105,6 +127,8 @@ public class TorneoDTO implements Serializable {
         return "TorneoDTO{" +
             "id=" + getId() +
             ", fecha='" + getFecha() + "'" +
+            ", fechaCreacion='" + getFechaCreacion() + "'" +
+            ", nombre='" + getNombre() + "'" +
             ", oficial='" + isOficial() + "'" +
             ", campeonatoId=" + getCampeonatoId() +
             ", especialidadId=" + getEspecialidadId() +

@@ -21,6 +21,8 @@ public class ParticipanteDTO implements Serializable {
 
     private LocalDate fechaNacimiento;
 
+    private Integer codigo;
+
     private Integer edad;
 
 
@@ -28,7 +30,7 @@ public class ParticipanteDTO implements Serializable {
 
     private Long clubId;
 
-    private Long categoriaId;
+    private Long subCategoriaId;
 
     public Long getId() {
         return id;
@@ -62,6 +64,14 @@ public class ParticipanteDTO implements Serializable {
         this.fechaNacimiento = fechaNacimiento;
     }
 
+    public Integer getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(Integer codigo) {
+        this.codigo = codigo;
+    }
+
     public Integer getEdad() {
         return edad;
     }
@@ -86,12 +96,12 @@ public class ParticipanteDTO implements Serializable {
         this.clubId = clubId;
     }
 
-    public Long getCategoriaId() {
-        return categoriaId;
+    public Long getSubCategoriaId() {
+        return subCategoriaId;
     }
 
-    public void setCategoriaId(Long categoriaId) {
-        this.categoriaId = categoriaId;
+    public void setSubCategoriaId(Long subCategoriaId) {
+        this.subCategoriaId = subCategoriaId;
     }
 
     @Override
@@ -122,9 +132,10 @@ public class ParticipanteDTO implements Serializable {
             ", nombre='" + getNombre() + "'" +
             ", apellido='" + getApellido() + "'" +
             ", fechaNacimiento='" + getFechaNacimiento() + "'" +
+            ", codigo=" + getCodigo() +
             ", edad=" + getEdad() +
             ", clubId=" + getClubId() +
-            ", categoriaId=" + getCategoriaId() +
+            ", subCategoriaId=" + getSubCategoriaId() +
             "}";
     }
 }

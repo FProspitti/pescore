@@ -19,6 +19,12 @@
             <column name="fecha" type="date">
                 <constraints nullable="true" />
             </column>
+            <column name="fecha_creacion" type="date">
+                <constraints nullable="true" />
+            </column>
+            <column name="nombre" type="varchar(50)">
+                <constraints nullable="true" />
+            </column>
             <column name="oficial" type="boolean">
                 <constraints nullable="true" />
             </column>
@@ -58,6 +64,8 @@
                   tableName="torneo">
             <column name="id" type="numeric"/>
             <column name="fecha" type="date"/>
+            <column name="fecha_creacion" type="date"/>
+            <column name="nombre" type="string"/>
             <column name="oficial" type="boolean"/>
             <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here, do not remove-->
         </loadData>

@@ -25,7 +25,10 @@ public class Categoria implements Serializable {
     private String nombre;
 
     @OneToMany(mappedBy = "categoria")
-    private Set<Participante> participantes = new HashSet<>();
+    private Set<SubCategoria> subCategorias = new HashSet<>();
+
+    @OneToMany(mappedBy = "categoria")
+    private Set<Campeonato> campeonatoes = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -49,29 +52,54 @@ public class Categoria implements Serializable {
         this.nombre = nombre;
     }
 
-    public Set<Participante> getParticipantes() {
-        return participantes;
+    public Set<SubCategoria> getSubCategorias() {
+        return subCategorias;
     }
 
-    public Categoria participantes(Set<Participante> participantes) {
-        this.participantes = participantes;
+    public Categoria subCategorias(Set<SubCategoria> subCategorias) {
+        this.subCategorias = subCategorias;
         return this;
     }
 
-    public Categoria addParticipante(Participante participante) {
-        this.participantes.add(participante);
-        participante.setCategoria(this);
+    public Categoria addSubCategoria(SubCategoria subCategoria) {
+        this.subCategorias.add(subCategoria);
+        subCategoria.setCategoria(this);
         return this;
     }
 
-    public Categoria removeParticipante(Participante participante) {
-        this.participantes.remove(participante);
-        participante.setCategoria(null);
+    public Categoria removeSubCategoria(SubCategoria subCategoria) {
+        this.subCategorias.remove(subCategoria);
+        subCategoria.setCategoria(null);
         return this;
     }
 
-    public void setParticipantes(Set<Participante> participantes) {
-        this.participantes = participantes;
+    public void setSubCategorias(Set<SubCategoria> subCategorias) {
+        this.subCategorias = subCategorias;
+    }
+
+    public Set<Campeonato> getCampeonatoes() {
+        return campeonatoes;
+    }
+
+    public Categoria campeonatoes(Set<Campeonato> campeonatoes) {
+        this.campeonatoes = campeonatoes;
+        return this;
+    }
+
+    public Categoria addCampeonato(Campeonato campeonato) {
+        this.campeonatoes.add(campeonato);
+        campeonato.setCategoria(this);
+        return this;
+    }
+
+    public Categoria removeCampeonato(Campeonato campeonato) {
+        this.campeonatoes.remove(campeonato);
+        campeonato.setCategoria(null);
+        return this;
+    }
+
+    public void setCampeonatoes(Set<Campeonato> campeonatoes) {
+        this.campeonatoes = campeonatoes;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

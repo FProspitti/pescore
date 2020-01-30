@@ -2,6 +2,7 @@ package com.ar.pescore.domain;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
+import javax.validation.constraints.*;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -23,6 +24,13 @@ public class Torneo implements Serializable {
 
     @Column(name = "fecha")
     private LocalDate fecha;
+
+    @Column(name = "fecha_creacion")
+    private LocalDate fechaCreacion;
+
+    @Size(max = 50)
+    @Column(name = "nombre", length = 50)
+    private String nombre;
 
     @Column(name = "oficial")
     private Boolean oficial;
@@ -66,6 +74,32 @@ public class Torneo implements Serializable {
 
     public void setFecha(LocalDate fecha) {
         this.fecha = fecha;
+    }
+
+    public LocalDate getFechaCreacion() {
+        return fechaCreacion;
+    }
+
+    public Torneo fechaCreacion(LocalDate fechaCreacion) {
+        this.fechaCreacion = fechaCreacion;
+        return this;
+    }
+
+    public void setFechaCreacion(LocalDate fechaCreacion) {
+        this.fechaCreacion = fechaCreacion;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public Torneo nombre(String nombre) {
+        this.nombre = nombre;
+        return this;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public Boolean isOficial() {
@@ -180,6 +214,8 @@ public class Torneo implements Serializable {
         return "Torneo{" +
             "id=" + getId() +
             ", fecha='" + getFecha() + "'" +
+            ", fechaCreacion='" + getFechaCreacion() + "'" +
+            ", nombre='" + getNombre() + "'" +
             ", oficial='" + isOficial() + "'" +
             "}";
     }

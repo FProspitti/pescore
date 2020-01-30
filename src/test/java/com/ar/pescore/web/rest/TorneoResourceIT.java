@@ -41,6 +41,12 @@ public class TorneoResourceIT {
     private static final LocalDate DEFAULT_FECHA = LocalDate.ofEpochDay(0L);
     private static final LocalDate UPDATED_FECHA = LocalDate.now(ZoneId.systemDefault());
 
+    private static final LocalDate DEFAULT_FECHA_CREACION = LocalDate.ofEpochDay(0L);
+    private static final LocalDate UPDATED_FECHA_CREACION = LocalDate.now(ZoneId.systemDefault());
+
+    private static final String DEFAULT_NOMBRE = "AAAAAAAAAA";
+    private static final String UPDATED_NOMBRE = "BBBBBBBBBB";
+
     private static final Boolean DEFAULT_OFICIAL = false;
     private static final Boolean UPDATED_OFICIAL = true;
 
@@ -93,6 +99,8 @@ public class TorneoResourceIT {
     public static Torneo createEntity(EntityManager em) {
         Torneo torneo = new Torneo()
             .fecha(DEFAULT_FECHA)
+            .fechaCreacion(DEFAULT_FECHA_CREACION)
+            .nombre(DEFAULT_NOMBRE)
             .oficial(DEFAULT_OFICIAL);
         return torneo;
     }
@@ -105,6 +113,8 @@ public class TorneoResourceIT {
     public static Torneo createUpdatedEntity(EntityManager em) {
         Torneo torneo = new Torneo()
             .fecha(UPDATED_FECHA)
+            .fechaCreacion(UPDATED_FECHA_CREACION)
+            .nombre(UPDATED_NOMBRE)
             .oficial(UPDATED_OFICIAL);
         return torneo;
     }
@@ -131,6 +141,8 @@ public class TorneoResourceIT {
         assertThat(torneoList).hasSize(databaseSizeBeforeCreate + 1);
         Torneo testTorneo = torneoList.get(torneoList.size() - 1);
         assertThat(testTorneo.getFecha()).isEqualTo(DEFAULT_FECHA);
+        assertThat(testTorneo.getFechaCreacion()).isEqualTo(DEFAULT_FECHA_CREACION);
+        assertThat(testTorneo.getNombre()).isEqualTo(DEFAULT_NOMBRE);
         assertThat(testTorneo.isOficial()).isEqualTo(DEFAULT_OFICIAL);
     }
 
@@ -167,6 +179,8 @@ public class TorneoResourceIT {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(torneo.getId().intValue())))
             .andExpect(jsonPath("$.[*].fecha").value(hasItem(DEFAULT_FECHA.toString())))
+            .andExpect(jsonPath("$.[*].fechaCreacion").value(hasItem(DEFAULT_FECHA_CREACION.toString())))
+            .andExpect(jsonPath("$.[*].nombre").value(hasItem(DEFAULT_NOMBRE)))
             .andExpect(jsonPath("$.[*].oficial").value(hasItem(DEFAULT_OFICIAL.booleanValue())));
     }
     
@@ -182,6 +196,8 @@ public class TorneoResourceIT {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(torneo.getId().intValue()))
             .andExpect(jsonPath("$.fecha").value(DEFAULT_FECHA.toString()))
+            .andExpect(jsonPath("$.fechaCreacion").value(DEFAULT_FECHA_CREACION.toString()))
+            .andExpect(jsonPath("$.nombre").value(DEFAULT_NOMBRE))
             .andExpect(jsonPath("$.oficial").value(DEFAULT_OFICIAL.booleanValue()));
     }
 
@@ -207,6 +223,8 @@ public class TorneoResourceIT {
         em.detach(updatedTorneo);
         updatedTorneo
             .fecha(UPDATED_FECHA)
+            .fechaCreacion(UPDATED_FECHA_CREACION)
+            .nombre(UPDATED_NOMBRE)
             .oficial(UPDATED_OFICIAL);
         TorneoDTO torneoDTO = torneoMapper.toDto(updatedTorneo);
 
@@ -220,6 +238,8 @@ public class TorneoResourceIT {
         assertThat(torneoList).hasSize(databaseSizeBeforeUpdate);
         Torneo testTorneo = torneoList.get(torneoList.size() - 1);
         assertThat(testTorneo.getFecha()).isEqualTo(UPDATED_FECHA);
+        assertThat(testTorneo.getFechaCreacion()).isEqualTo(UPDATED_FECHA_CREACION);
+        assertThat(testTorneo.getNombre()).isEqualTo(UPDATED_NOMBRE);
         assertThat(testTorneo.isOficial()).isEqualTo(UPDATED_OFICIAL);
     }
 

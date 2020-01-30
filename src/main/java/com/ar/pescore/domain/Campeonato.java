@@ -1,5 +1,6 @@
 package com.ar.pescore.domain;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
@@ -22,8 +23,8 @@ public class Campeonato implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "fecha")
-    private LocalDate fecha;
+    @Column(name = "fecha_creacion")
+    private LocalDate fechaCreacion;
 
     @Size(max = 50)
     @Column(name = "nombre", length = 50)
@@ -38,6 +39,10 @@ public class Campeonato implements Serializable {
     @OneToMany(mappedBy = "campeonato")
     private Set<Torneo> torneos = new HashSet<>();
 
+    @ManyToOne
+    @JsonIgnoreProperties("campeonatoes")
+    private Categoria categoria;
+
     @ManyToMany(mappedBy = "campeonatoes")
     @JsonIgnore
     private Set<Participante> participantes = new HashSet<>();
@@ -51,17 +56,17 @@ public class Campeonato implements Serializable {
         this.id = id;
     }
 
-    public LocalDate getFecha() {
-        return fecha;
+    public LocalDate getFechaCreacion() {
+        return fechaCreacion;
     }
 
-    public Campeonato fecha(LocalDate fecha) {
-        this.fecha = fecha;
+    public Campeonato fechaCreacion(LocalDate fechaCreacion) {
+        this.fechaCreacion = fechaCreacion;
         return this;
     }
 
-    public void setFecha(LocalDate fecha) {
-        this.fecha = fecha;
+    public void setFechaCreacion(LocalDate fechaCreacion) {
+        this.fechaCreacion = fechaCreacion;
     }
 
     public String getNombre() {
@@ -128,6 +133,19 @@ public class Campeonato implements Serializable {
         this.torneos = torneos;
     }
 
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public Campeonato categoria(Categoria categoria) {
+        this.categoria = categoria;
+        return this;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
+    }
+
     public Set<Participante> getParticipantes() {
         return participantes;
     }
@@ -174,7 +192,7 @@ public class Campeonato implements Serializable {
     public String toString() {
         return "Campeonato{" +
             "id=" + getId() +
-            ", fecha='" + getFecha() + "'" +
+            ", fechaCreacion='" + getFechaCreacion() + "'" +
             ", nombre='" + getNombre() + "'" +
             ", cantidadPescadores=" + getCantidadPescadores() +
             ", cantidadClubes=" + getCantidadClubes() +

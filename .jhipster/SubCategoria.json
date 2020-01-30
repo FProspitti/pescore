@@ -1,5 +1,5 @@
 {
-    "name": "Categoria",
+    "name": "SubCategoria",
     "fields": [
         {
             "fieldName": "nombre",
@@ -13,19 +13,20 @@
     "relationships": [
         {
             "relationshipType": "one-to-many",
-            "otherEntityName": "subCategoria",
-            "otherEntityRelationshipName": "categoria",
-            "relationshipName": "subCategoria"
+            "otherEntityName": "participante",
+            "otherEntityRelationshipName": "subCategoria",
+            "relationshipName": "participante"
         },
         {
-            "relationshipType": "one-to-many",
-            "otherEntityName": "campeonato",
-            "otherEntityRelationshipName": "categoria",
-            "relationshipName": "campeonato"
+            "relationshipType": "many-to-one",
+            "otherEntityName": "categoria",
+            "otherEntityRelationshipName": "subCategoria",
+            "relationshipName": "categoria",
+            "otherEntityField": "id"
         }
     ],
-    "changelogDate": "20200123191027",
-    "entityTableName": "categoria",
+    "changelogDate": "20200129191610",
+    "entityTableName": "sub_categoria",
     "dto": "mapstruct",
     "pagination": "no",
     "service": "serviceImpl",

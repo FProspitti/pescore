@@ -22,6 +22,8 @@ logging:
 spring:
   profiles:
     active: dev
+#    include:
+#      - swagger
       # Uncomment to activate TLS for the dev profile
       #- tls
   devtools:
@@ -91,7 +93,7 @@ jhipster:
     authentication:
       jwt:
         # This token must be encoded using Base64 and be at least 256 bits long (you can type `openssl rand -base64 64` on your command line to generate a 512 bits one)
-        base64-secret: ZjEwNTg1ZmI2MzIwMDRjMjY5YjY2ZWM5ZWUzYWQ4MzU0ZWZjOGRkMWNkYzE1NjQ0YTIzYjJmMTdjOWFhMWZkOGY0MTA1NDE1ZTNkM2JlNDczNzk0ZDVlOGFlY2Y4YjNjODQwYTBiZDE4OGYzN2RiNGJkYWI4MGVkMzY5NzZiMmU=
+        base64-secret: N2JjNWNhZDQ4OTQ2MzNlODQ2YmI1ZjZhODRkMjE1OWZjNWY4YmE5OTIyYzc1NmZlMzM1ZjJkYzc3YzBkZjRlMzBmYmE1ZTZmYmI0MjlhMzNjZjkwOTk0MjgzZjIwOTE1NWE5YzFkZDk5MDU5YzlkM2I5NTBlMTg0YTc3MjhkMzA=
         # Token is valid 24 hours
         token-validity-in-seconds: 86400
         token-validity-in-seconds-for-remember-me: 2592000

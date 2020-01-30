@@ -2,7 +2,7 @@
     "name": "Campeonato",
     "fields": [
         {
-            "fieldName": "fecha",
+            "fieldName": "fechaCreacion",
             "fieldType": "LocalDate"
         },
         {
@@ -28,6 +28,13 @@
             "otherEntityName": "torneo",
             "otherEntityRelationshipName": "campeonato",
             "relationshipName": "torneo"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "categoria",
+            "otherEntityRelationshipName": "campeonato",
+            "relationshipName": "categoria",
+            "otherEntityField": "id"
         },
         {
             "relationshipType": "many-to-many",
